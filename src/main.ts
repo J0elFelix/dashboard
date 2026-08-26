@@ -1,3 +1,3 @@
-import './deparute'
+import './departure'
 import './news'
 import './graphClient'

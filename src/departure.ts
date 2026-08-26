@@ -1,10 +1,10 @@
 import './style.css'
 
 async function departure(): Promise<void> {
-  const container = document.getElementById("deparute-events");
+  const container = document.getElementById("departure-events");
 
   if (!container) {
-    console.error("Element #deparute wurde nicht gefunden.");
+    console.error("Element #departure wurde nicht gefunden.");
     return;
   }
 
@@ -31,7 +31,7 @@ async function departure(): Promise<void> {
         const arrivalTime = formatTime(connection.to.arrival);
 
           return `
-            <article class="deparute-events">
+            <article class="departure-events">
               <p>von: ${from} nach: ${to}</p>
               <p>Dauer: ${duration}</p>
               <p>${transfers} Umsteigen</p>
