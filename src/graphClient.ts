@@ -1,0 +1,49 @@
+import "./style.css";
+
+const GRAPH_TOKEN = "eyJ0eXAiOiJKV1QiLCJub25jZSI6Imh5YVFCYkw2ZFYzOEVXTC0tOWNmMkhhWWZQT1NsWjZjUHVWcjFnckpoWVUiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQ1aDQwcTdHMHg0OXFuNDFsTTkta0tqcEQ5OCIsImtpZCI6IlQ1aDQwcTdHMHg0OXFuNDFsTTkta0tqcEQ5OCJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8zNWFhOGM1Yi1hYzBhLTRiMTUtOTc4OC1mZjZkZmEyMjkwMWYvIiwiaWF0IjoxNzg3NzI2MTI0LCJuYmYiOjE3ODc3MjYxMjQsImV4cCI6MTc4NzgxMjgyNCwiYWNjdCI6MCwiYWNyIjoiMSIsImFjcnMiOlsicDEiLCJ1cm46dXNlcjpyZWdpc3RlcnNlY3VyaXR5aW5mbyIsInBmZHIiXSwiYWlvIjoiQVhRQWkvOGNBQUFBSnBiSUEvdDFpVFU4K3ZVWjlzT1BWd1dkWXpMOUI3YXYrOXhEMkZnT3FOcFhZcHhVRWoxd2xkZjNTdkZ3TnEyQndYcnZQSHk1ak1MM3E0SmZOdDRPWVVkUVh2eHpBTCtleG0vMEdYNkIzV2RINkI5YUpSUUNsWlBMdlV3cUU1TmMyWmFCV0s3eDJOUUFiZVhibUVOUyt3PT0iLCJhbXIiOlsicHdkIiwibWZhIl0sImFwcF9kaXNwbGF5bmFtZSI6IkdyYXBoIEV4cGxvcmVyIiwiYXBwaWQiOiJkZThiYzhiNS1kOWY5LTQ4YjEtYThhZC1iNzQ4ZGE3MjUwNjQiLCJhcHBpZGFjciI6IjAiLCJjYXBvbGlkc19sYXRlYmluZCI6WyJlN2U0MDUwZC04YjM3LTRhMTctYmZlOS1kMTI4ZjI4ZmMyNDMiXSwiZmFtaWx5X25hbWUiOiJGZWxpeCIsImdpdmVuX25hbWUiOiJKb2VsIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiMTkzLjguMTc3LjE3IiwibmFtZSI6IkZlbGl4LCBKb2VsLU1HQiIsIm9pZCI6Ijg1NDY2YWFiLTM4YTYtNDM2Yy1hZjQ2LWUxOTYwN2UwMzlkNSIsIm9ucHJlbV9zaWQiOiJTLTEtNS0yMS0zMzM3Njk0NTk0LTMxNjQwMTA5NTQtMTk3MDU1NjI3OC04NDI4MTkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzIwMDM3MUU5NTZFMiIsInJoIjoiMS5BWG9BVzR5cU5RcXNGVXVYaVA5dC1pS1FId01BQUFBQUFBQUF3QUFBQUFBQUFBQUFBQWw2QUEuIiwic2NwIjoiQXBwbGljYXRpb24uUmVhZC5BbGwgQXVkaXRMb2cuUmVhZC5BbGwgQ2FsZW5kYXJzLlJlYWRCYXNpYyBDYWxlbmRhcnMuUmVhZFdyaXRlIENoYW5uZWxNZXNzYWdlLlJlYWQuQWxsIENoYW5uZWxNZXNzYWdlLlNlbmQgQ2hhdC5SZWFkIENoYXQuUmVhZEJhc2ljIENoYXQuUmVhZFdyaXRlIENvbnRhY3RzLlJlYWRXcml0ZSBEZXZpY2VNYW5hZ2VtZW50QXBwcy5SZWFkLkFsbCBEZXZpY2VNYW5hZ2VtZW50QXBwcy5SZWFkV3JpdGUuQWxsIERldmljZU1hbmFnZW1lbnRDbG91ZENBLlJlYWQuQWxsIERldmljZU1hbmFnZW1lbnRDb25maWd1cmF0aW9uLlJlYWQuQWxsIERldmljZU1hbmFnZW1lbnRDb25maWd1cmF0aW9uLlJlYWRXcml0ZS5BbGwgRGV2aWNlTWFuYWdlbWVudE1hbmFnZWREZXZpY2VzLlByaXZpbGVnZWRPcGVyYXRpb25zLkFsbCBEZXZpY2VNYW5hZ2VtZW50TWFuYWdlZERldmljZXMuUmVhZC5BbGwgRGV2aWNlTWFuYWdlbWVudE1hbmFnZWREZXZpY2VzLlJlYWRXcml0ZS5BbGwgRGV2aWNlTWFuYWdlbWVudFJCQUMuUmVhZC5BbGwgRGV2aWNlTWFuYWdlbWVudFJCQUMuUmVhZFdyaXRlLkFsbCBEZXZpY2VNYW5hZ2VtZW50U2NyaXB0cy5SZWFkLkFsbCBEZXZpY2VNYW5hZ2VtZW50U2NyaXB0cy5SZWFkV3JpdGUuQWxsIERldmljZU1hbmFnZW1lbnRTZXJ2aWNlQ29uZmlnLlJlYWQuQWxsIERldmljZU1hbmFnZW1lbnRTZXJ2aWNlQ29uZmlnLlJlYWRXcml0ZS5BbGwgRGlyZWN0b3J5LkFjY2Vzc0FzVXNlci5BbGwgRGlyZWN0b3J5LlJlYWQuQWxsIERpcmVjdG9yeS5SZWFkV3JpdGUuQWxsIEVudGl0bGVtZW50TWFuYWdlbWVudC5SZWFkLkFsbCBGaWxlcy5SZWFkIEZpbGVzLlJlYWRXcml0ZS5BbGwgR3JvdXAuUmVhZC5BbGwgR3JvdXAuUmVhZFdyaXRlLkFsbCBHcm91cE1lbWJlci5SZWFkV3JpdGUuQWxsIElkZW50aXR5Umlza0V2ZW50LlJlYWQuQWxsIE1haWwuUmVhZFdyaXRlIE1haWxib3hTZXR0aW5ncy5SZWFkV3JpdGUgTm90ZXMuUmVhZFdyaXRlLkFsbCBvcGVuaWQgUGVvcGxlLlJlYWQgUHJlc2VuY2UuUmVhZCBQcmludGVyLlJlYWQuQWxsIHByb2ZpbGUgUmVwb3J0cy5SZWFkLkFsbCBTY2hlZHVsZS5SZWFkLkFsbCBTZWN1cml0eUV2ZW50cy5SZWFkLkFsbCBTaXRlcy5GdWxsQ29udHJvbC5BbGwgU2l0ZXMuTWFuYWdlLkFsbCBTaXRlcy5SZWFkLkFsbCBTaXRlcy5SZWFkV3JpdGUuQWxsIFRhc2tzLlJlYWRXcml0ZSBUZWFtc1RhYi5SZWFkLkFsbCBUZWFtc1RhYi5SZWFkV3JpdGUuQWxsIFRlYW1zVGFiLlJlYWRXcml0ZUZvclRlYW0gVGVhbXNUYWIuUmVhZFdyaXRlU2VsZkZvclRlYW0gVGhyZWF0SHVudGluZy5SZWFkLkFsbCBVc2VyLlJlYWQgVXNlci5SZWFkLkFsbCBVc2VyLlJlYWRCYXNpYy5BbGwgVXNlci5SZWFkV3JpdGUgVXNlci5SZWFkV3JpdGUuQWxsIGVtYWlsIiwic2lkIjoiMDA3YmVlYWEtYzcwMS05OWMyLWUzNjktM2Y0MTljOGNlMzcwIiwic2lnbmluX3N0YXRlIjpbImlua25vd25udHdrIiwia21zaSJdLCJzdWIiOiJvR1hPeWlWeV9ZOXlKWlV4N0pMVFVWMGY4SWtjQ3lqcm5ZaDd0SUktemVJIiwidGVuYW50X3JlZ2lvbl9zY29wZSI6IkVVIiwidGlkIjoiMzVhYThjNWItYWMwYS00YjE1LTk3ODgtZmY2ZGZhMjI5MDFmIiwidW5pcXVlX25hbWUiOiJqb2VsLmZlbGl4QG1nYi5jaCIsInVwbiI6ImpvZWwuZmVsaXhAbWdiLmNoIiwidXRpIjoiWTZCb1BPQzlBa0tPQ2RKWWhtTjhBUSIsInZlciI6IjEuMCIsIndpZHMiOlsiYjc5ZmJmNGQtM2VmOS00Njg5LTgxNDMtNzZiMTk0ZTg1NTA5Il0sInhtc19hY2QiOjE0NzQ2NjQwNzMsInhtc19hY3RfZmN0IjoiNyAzIiwieG1zX2NjIjpbIkNQMSJdLCJ4bXNfZnRkIjoiRmtNTHA5NzlLMmY2WjJzWjMyenM5a05TQ09TQUV0Qm9wbFo3dEJYMy02d0JaWFZ5YjNCbGJtOXlkR2d0WkhOdGN3IiwieG1zX2lkcmVsIjoiMSAyMiIsInhtc19wZnRleHAiOjE3ODc4OTkyMjQsInhtc19zc20iOiIxIiwieG1zX3N0Ijp7InN1YiI6IjJrdjFYcGhmMXhRSzdNRmpRTU52Z2t2ZVE4SFNaSHBfVkxkVTY3MkRmMG8ifSwieG1zX3N1Yl9mY3QiOiIzIDE0IiwieG1zX3RjZHQiOjE0Mzc0NjM1MDUsInhtc190ZGJyIjoiRVUiLCJ4bXNfdG50X2ZjdCI6IjQgMyJ9.W8c73EvKm6xzNy8k_Ur8dGQh5BM1WJp7aIvkR1jsJzwsGyYIdc9YSSkv0VKXbtyrZtlfSOV8gJHrP5-44vWJMMGRp7OFHK0851Yl27i35wVTtU3st3akC810BUdjDXzTCm62z6ePXciMeKX1elM3KIjZLe4YBJIQQZ6_2XL6wiTAYMsQtaJ6Xk-IKp6St0NdW9pk6oVYXe5_phIUUsodmJa16bJb082MCwNPVyo3UTEvFAvnl-7mCQC4M8zUzD7UkK6vgiyDnWU0Sa6BIuzMYoGnvkg5br1B_5V1j6RjHqN0Edwomn_rxu9-FFq5nes3hlPHAA9VeFHvaJyPc5DUcQ";
+
+async function calendar(): Promise<void> {
+  const container = document.getElementById("calendar-events");
+
+  if (!container) {
+    console.error("Element #calendar-events wurde nicht gefunden.");
+    return;
+  }
+
+  try {
+    const response = await fetch("https://graph.microsoft.com/v1.0/me/calendarview?startdatetime=2026-08-24T10:52:09.500Z&enddatetime=2026-08-28T10:52:09.500Z",
+      {
+        headers: {
+          Authorization: `Bearer ${GRAPH_TOKEN}`,
+          Prefer: 'outlook.timezone="Europe/Zurich"',
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        `Microsoft Graph Fehler ${response.status}: ${await response.text()}`
+      );
+    }
+
+    const result = await response.json();
+
+    container.innerHTML = (result.value ?? [])
+      .map((event: any) => {
+        const start = new Date(event.start.dateTime).toLocaleString("de-CH");
+        const end = new Date(event.end.dateTime).toLocaleString("de-CH");
+
+        return `
+          <article class="calendar-event">
+            <h3>${event.subject || "Ohne Titel"}</h3>
+            <p>${start} – ${end}</p>
+          </article>
+        `;
+      })
+      .join("");
+  } catch (error) {
+    console.error("Ein Fehler ist aufgetreten:", error);    
+  }
+}
+
+calendar();
