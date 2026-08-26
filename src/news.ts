@@ -3,7 +3,7 @@ import './style.css'
 const NEWS_KEY = "5e68f259bedd4c41acd3b26106b3ea5b"
 
 async function loadNews(): Promise<void> {
-  const container = document.getElementById("news-events");
+  const container = document.getElementById("news-list");
 
   if (!container) {
     console.error("Element #news-events wurde nicht gefunden.");
@@ -32,7 +32,7 @@ async function loadNews(): Promise<void> {
         const date = article.publishedAt;
 
         return `
-          <article class="news-events">
+          <article class="news-item">
             <a href="${url}" target="_blank"><h2>${title}<h2></a>
             <p>${description}</p>
             <p>${source}</p>

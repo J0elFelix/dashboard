@@ -7,7 +7,7 @@ if (!GRAPH_TOKEN) {
 }
 
 async function calendar(): Promise<void> {
-  const container = document.getElementById("calendar-events");
+  const container = document.getElementById("calendar-list");
 
   if (!container) {
     console.error("Element #calendar-events wurde nicht gefunden.");
@@ -38,7 +38,7 @@ async function calendar(): Promise<void> {
         const end = new Date(event.end.dateTime).toLocaleString("de-CH");
 
         return `
-          <article class="calendar-event">
+          <article class="calendar-item">
             <h3>${event.subject || "Ohne Titel"}</h3>
             <p>${start} – ${end}</p>
           </article>
