@@ -1,6 +1,10 @@
 import './style.css'
 
-const NEWS_KEY = "5e68f259bedd4c41acd3b26106b3ea5b"
+const NEWS_KEY = import.meta.env.VITE_NEWS_KEY;
+
+if (!NEWS_KEY) {
+  throw new Error ("NEWS_KEY wurde nicht gefunden.");
+}
 
 async function loadNews(): Promise<void> {
   const container = document.getElementById("news-list");
