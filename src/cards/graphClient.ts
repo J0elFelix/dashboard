@@ -4,14 +4,14 @@ import '../styles/styles.scss'
 const GRAPH_TOKEN = import.meta.env.VITE_GRAPH_TOKEN;
 
 if (!GRAPH_TOKEN) {
-  throw new Error("GRAPH_TOKEN wurde nicht geunden.");
+  throw new Error("GRAPH_TOKEN wurde nicht gefunden.");
 }
 
 async function calendar(): Promise<void> {
-  const container = document.getElementById("calendar-list");
+  const container = document.getElementById("calendar__card-list");
 
   if (!container) {
-    console.error("Element #calendar-events wurde nicht gefunden.");
+    console.error("Element #calendar__card-list wurde nicht gefunden.");
     return;
   }
 
@@ -59,12 +59,12 @@ async function calendar(): Promise<void> {
         const formattedDate = startDate === endDate ? startDate : `${startDate} - ${endDate}`;
 
         return `
-          <article class="calendar-item">
-            <div class="calendar-time">
+          <article class="calendar__card-list-item">
+            <div class="calendar__card-list-item-time">
               <div>${formattedDate}</div>
               <div>${time}</div>
             </div>
-            <div class="calendar-title">
+            <div class="calendar__card-list-item-title">
               <h3>${event.subject || "Kein Titel"}</h3>
               ${location ? `<p>${location}</p>` : ""}
             </div>            
