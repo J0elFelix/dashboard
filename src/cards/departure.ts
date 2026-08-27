@@ -2,7 +2,7 @@ import '../styles/departure.scss'
 import '../styles/styles.scss'
 
 async function departure(): Promise<void> {
-  const container = document.getElementById("departure__list");
+  const container = document.getElementById("departure__card-list");
 
   if (!container) {
     console.error("Element #departure wurde nicht gefunden.");
@@ -30,12 +30,12 @@ async function departure(): Promise<void> {
         const arrivalTime = formatTime(connection.to.arrival);
 
           return `          
-            <article class="departure__item">
-              <div class="departure__item-time">
+            <article class="departure__card-list-item">
+              <div class="departure__card-list-item-time">
                 <p>${departureTime}</p>
                 <p>${arrivalTime}</p>              
               </div>            
-              <div class="departure__item-connection">
+              <div class="departure__card-list-item-connection">
                 <p>${duration}</p>
                 <p>${transfers} Umsteigen</p>              
               </div>            
