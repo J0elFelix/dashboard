@@ -9,7 +9,7 @@ async function departure(): Promise<void> {
   }
 
   try {
-    const response = await fetch('https://transport.opendata.ch/v1/connections?from=GossauSG,MigrosBZ&to=Herisau,Stelz&limit=5',
+    const response = await fetch('https://transport.opendata.ch/v1/connections?from=Gossau%20SG%2C%20Migros%20BZ&to=Herisau%2C%20Stelz&limit=5',
     );
 
     if (!response.ok) {
@@ -22,23 +22,24 @@ async function departure(): Promise<void> {
 
     container.innerHTML = (result.connections ?? [])
       .map((connection: any) => {
-        const from = connection.from.station.name;
-        const to = connection.to.station.name;
         const duration = connection.duration;
         const transfers = connection.transfers;        
         const formatTime = (value: string | null) => value ? new Date(value).toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit", }) : "-";
         const departureTime = formatTime(connection.from.departure);
         const arrivalTime = formatTime(connection.to.arrival);
 
-          return `
+          return `          
             <article class="departure-item">
-              <p>von: ${from} nach: ${to}</p>
-              <p>Dauer: ${duration}</p>
-              <p>${transfers} Umsteigen</p>
-              <p>Abfahrt: ${departureTime}</p>
-              <p>Ankunft: ${arrivalTime}</p>
+              <div class="time">
+                <p>${departureTime}</p>
+                <p>${arrivalTime}</p>              
+              </div>            
+              <div class="connection-info">
+                <p>${duration}</p>
+                <p>${transfers} Umsteigen</p>              
+              </div>            
             </article>
-          `;
+          `;          
       })
       .join("");    
   } catch (error) {
