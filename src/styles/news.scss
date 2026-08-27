@@ -1,4 +1,11 @@
 .news__card {
+    max-height: 360px;
+    
+    &.card { 
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
     &-list {
         &-item {
             &-meta {
