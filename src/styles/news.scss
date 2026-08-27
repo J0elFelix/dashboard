@@ -1,0 +1,23 @@
+.meta {
+ border-top: 1px solid #edf0f5;
+    
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    padding: 1px 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: blue;
+}
+
+.title, .description {
+    padding: 1px 10px;
+}
