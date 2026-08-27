@@ -1,6 +1,3 @@
-import '../styles/departure.scss'
-import '../styles/styles.scss'
-
 async function departure(): Promise<void> {
   const container = document.getElementById("departure__card-list");
 

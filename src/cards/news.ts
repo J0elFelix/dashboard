@@ -1,6 +1,3 @@
-import '../styles/news.scss'
-import '../styles/styles.scss'
-
 const NEWS_KEY = import.meta.env.VITE_NEWS_KEY;
 
 if (!NEWS_KEY) {
