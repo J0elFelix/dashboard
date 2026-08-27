@@ -33,14 +33,26 @@ async function loadNews(): Promise<void> {
         const source = article.source.name;
         const description = article.description;
         const url = article.url;
-        const date = article.publishedAt;
+        const date = new Date(article.publishedAt);
+
+        const publishedDate = date.toLocaleDateString("de-CH", { day: "2-digit", month: "2-digit"});
 
         return `
-          <article class="news-item">
-            <a href="${url}" target="_blank"><h2>${title}<h2></a>
-            <p>${description}</p>
-            <p>${source}</p>
-            <p>${date}</p>
+          <article class="news-item"> 
+            <div class="meta">
+              <div class="top">
+                <p>${source}</p>
+                <p>${publishedDate}</p>
+              </div>
+              <div class="title">
+                <a href="${url}" target="_blank">
+                  <div>${title}</div>
+                </a>
+              </div>                          
+            </div>
+            <div class="description">
+              <p>${description}</p>            
+            </div>                
           </article>
         `;
       })
