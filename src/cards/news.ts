@@ -8,10 +8,10 @@ if (!NEWS_KEY) {
 }
 
 async function loadNews(): Promise<void> {
-  const container = document.getElementById("news-list");
+  const container = document.getElementById("news__card-list");
 
   if (!container) {
-    console.error("Element #news-events wurde nicht gefunden.");
+    console.error("Element #news__card-list wurde nicht gefunden.");
     return;
   }
 
@@ -39,19 +39,19 @@ async function loadNews(): Promise<void> {
         const publishedDate = date.toLocaleDateString("de-CH", { day: "2-digit", month: "2-digit"});
 
         return `
-          <article class="news-item"> 
-            <div class="meta">
-              <div class="top">
+          <article class="news__card-list-item"> 
+            <div class="news__card-list-item-meta">
+              <div class="news__card-list-item-meta-top">
                 <p>${source}</p>
                 <p>${publishedDate}</p>
               </div>
-              <div class="title">
-                <a href="${url}" target="_blank">
+              <div class="news__card-list-item-meta-title">
+                <a class="news__card-list-item-meta-title-link" href="${url}" target="_blank">
                   <div>${title}</div>
                 </a>
               </div>                          
             </div>
-            <div class="description">
+            <div class="news__card-list-item-meta-description">
               <p>${description}</p>            
             </div>                
           </article>
