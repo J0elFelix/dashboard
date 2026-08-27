@@ -1,4 +1,11 @@
 .calendar__card {
+    max-height: 660px;
+
+    &.card { 
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
     &-list {
         &-item {
             display: flex;
