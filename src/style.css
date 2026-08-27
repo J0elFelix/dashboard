@@ -55,3 +55,41 @@ a:hover {
 .title, .description {
     padding: 1px 10px;
 }
+
+.route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 0 13px;
+    padding: 10px 12px;
+    border-radius: 9px;
+    color: #71809a;
+    background: #f6f8fc;
+    font-size: 11px;
+}
+
+.icon {
+    flex-shrink: 0;
+    width: 14px;
+    color: #a0abc0;
+}
+
+.departure-item {
+    display: flex;
+    align-items: center;
+    gap: 17px;    
+    border-top: 1px solid #edf0f5;
+}
+
+.time {
+    padding: 1px 10px;   
+}
+
+.connection-info {
+    padding-left: 16px;
+    border-left: 2px solid;
+    display: flex;    
+    justify-content: space-between;
+    flex: 1;
+}
