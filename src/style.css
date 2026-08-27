@@ -1,0 +1,33 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.card {
+    min-height: 360px;
+    padding: 25px 27px;
+    overflow: hidden;    
+    border: 1px solid;
+}
+
+.calendar-item {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding: 13px 0;
+    border-top: 1px solid #edf0f5;
+}
+
+.calendar-title {
+    padding-left: 16px;
+    border-left: 2px solid;    
+}
+
+.calendar-time {
+    display: flex;
+    flex: 0 0 100px;
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+}
