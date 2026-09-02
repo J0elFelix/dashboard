@@ -1,7 +1,7 @@
 const NEWS_KEY = import.meta.env.VITE_NEWS_KEY;
 
 if (!NEWS_KEY) {
-  throw new Error ("NEWS_KEY wurde nicht gefunden.");
+  throw new Error("NEWS_KEY wurde nicht gefunden.");
 }
 
 async function loadNews(): Promise<void> {
@@ -33,14 +33,14 @@ async function loadNews(): Promise<void> {
         const url = article.url;
         const date = new Date(article.publishedAt);
 
-        const publishedDate = date.toLocaleDateString("de-CH", { day: "2-digit", month: "2-digit"});
+        const publishedDate = date.toLocaleDateString("de-CH", { day: "2-digit", month: "2-digit" });
 
         return `
           <article class="news__card-list-item"> 
             <div class="news__card-list-item-meta">
               <div class="news__card-list-item-meta-top">
-                <p>${source}</p>
-                <p>${publishedDate}</p>
+                <span>${source}</span>
+                <span>${publishedDate}</span>
               </div>
               <div class="news__card-list-item-meta-title">
                 <a class="news__card-list-item-meta-title-link" href="${url}" target="_blank">
@@ -50,7 +50,7 @@ async function loadNews(): Promise<void> {
             </div>
             <details class="news__card-list-item-meta-description">
               <summary class="news__card-list-item-meta-description-accordion">Mehr lesen</summary>
-              <p>${content}</p>
+              <p class="news__card-list-item-meta-description-description">${content}</p>
             </details>
           </article>
         `;

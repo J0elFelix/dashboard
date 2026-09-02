@@ -1,42 +1,59 @@
 .news__card {
-    max-height: 482px;
-    
-    &.card { 
+
+    &.card {
         overflow-y: auto;
-        overflow-x: hidden;
+        overflow-x: hidden;        
     }
 
     &-list {
         &-item {
-            &-meta {
-                border-top: 1px solid #edf0f5;
+            padding: 16px 2px;
+            border-top: 1px solid #e6ebf2;          
 
+            &-meta {
                 &-top {
                     display: flex;
-                    justify-content: space-between;
-                    padding: 1px 10px;
+                    justify-content: space-between;                                       
+                    padding: 0px 10px 8px;
+                    color: #7b8798;
+                    font-size: 11px;
+                    font-weight: 700;                  
+                    text-transform: uppercase;                   
                 }
 
                 &-title {
-                    padding: 1px 10px;
+                    padding: 0px 10px 10px;
 
                     &-link {
                         text-decoration: none;
-                        color: black;
-
+                        color: #17243d;
+                        font-size: 17px;
+                        font-weight: 700;
+                        
                         &:hover {
-                            color: blue;
+                            color: #5d5dcc;
                         }
                     }
                 }
 
                 &-description {
-                    padding: 10px;
+                    margin: 0px 10px;
+                    border: 1px solid #e2e8f0;
+                    background: #f7f9fc;
 
                     &-accordion {
                         cursor: pointer;
-                        color: #000000;
-                        padding: 10px 0;
+                        padding: 9px 11px;
+                        color: #45546a;
+                        font-size: 12px;
+                        font-weight: 700;
+                    }
+
+                    &-description {
+                        margin: 0px;
+                        padding: 10px;
+                        color: #4b5a70;
+                        font-size: 14px;                        
                     }
                 }
             }
