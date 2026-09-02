@@ -1,12 +1,20 @@
+html,
+body {
+    margin: 0;        
+    background: #f4f7fb;
+}
+
 .dashboard {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 15px;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    height: 100vh;   
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-.card {
-    min-height: 360px;
-    padding: 25px 27px;
-    overflow: hidden;    
-    border: 1px solid;
+.card {        
+    padding: 15px 18px;    
+    background: #fff;                
 }
