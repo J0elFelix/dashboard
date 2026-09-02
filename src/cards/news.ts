@@ -29,7 +29,7 @@ async function loadNews(): Promise<void> {
       .map((article: any) => {
         const title = article.title;
         const source = article.source.name;
-        const description = article.description;
+        const content = article.description;
         const url = article.url;
         const date = new Date(article.publishedAt);
 
@@ -48,9 +48,10 @@ async function loadNews(): Promise<void> {
                 </a>
               </div>                          
             </div>
-            <div class="news__card-list-item-meta-description">
-              <p>${description}</p>            
-            </div>                
+            <details class="news__card-list-item-meta-description">
+              <summary class="news__card-list-item-meta-description-accordion">Mehr lesen</summary>
+              <p>${content}</p>
+            </details>
           </article>
         `;
       })
