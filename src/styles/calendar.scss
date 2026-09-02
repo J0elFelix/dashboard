@@ -1,5 +1,4 @@
 .calendar__card {
-    max-height: 660px;
 
     &.card { 
         overflow-y: auto;
@@ -16,7 +15,7 @@
 
             &-time {
                 display: flex;
-                flex: 0 0 100px;
+                flex: 0 0 110px;
                 flex-direction: column;
                 gap: 6px;
                 text-align: center;
