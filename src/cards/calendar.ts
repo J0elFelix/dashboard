@@ -1,9 +1,3 @@
-const GRAPH_TOKEN = import.meta.env.VITE_GRAPH_TOKEN;
-
-if (!GRAPH_TOKEN) {
-  throw new Error("GRAPH_TOKEN wurde nicht gefunden.");
-}
-
 async function calendar(): Promise<void> {
   const container = document.getElementById("calendar__card-list");
 
@@ -12,64 +6,41 @@ async function calendar(): Promise<void> {
     return;
   }
 
-  const monday = new Date();
-  // Montag beginn und Sonntag ende
-  monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
-  monday.setHours(0, 0, 0, 0);
-
-  const nextMonday = new Date(monday);
-  nextMonday.setDate(nextMonday.getDate() + 7);
+  const year = new Date().getFullYear();
 
   try {
-    const response = await fetch(`https://graph.microsoft.com/v1.0/me/calendarview?startdatetime=${monday.toISOString()}&enddatetime=${nextMonday.toISOString()}`,
-      {
-        headers: {
-          Authorization: `Bearer ${GRAPH_TOKEN}`,
-          Prefer: 'outlook.timezone="Europe/Zurich"',
-        },
-      }
-    );
+    const response = await fetch(`https://openholidaysapi.org/SchoolHolidays?countryIsoCode=CH&languageIsoCode=DE&validFrom=${year}-01-01&validTo=${year}-12-31&subdivisionCode=CH-SG`,);
 
     if (!response.ok) {
       throw new Error(
-        `Microsoft Graph Fehler ${response.status}: ${await response.text()}`
+        `OpenHolidaysAPI Fehler ${response.status}: ${await response.text()}`
       );
     }
 
-    const result = await response.json();
-    const sortEvents = (result.value ?? []).sort((a: any, b: any) => new Date(a.start.dateTime).getTime() - new Date(b.start.dateTime).getTime());
+    const holidays: any[] = await response.json();
 
-    container.innerHTML = sortEvents
-      .map((event: any) => {
-        const allDay = event.isAllDay === true;
-        const start = new Date(event.start.dateTime);
-        const end = new Date(event.end.dateTime);
-        const location = event.location?.displayName || "";
-        const time = allDay ? `<span>Ganztägig</span>` : `        
+    holidays.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
 
-        <span>${start.toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit", })}</span>
-        -
-        <span>${end.toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit", })}</span>
-        `;
+    const formatDate = (date: string): string => { const [year, month, day] = date.split("-");
+      return `${day}.${month}.${year}`;
+    };
 
-        if (event.isAllDay) {
-          end.setDate(end.getDate() - 1);
-        }
-
-        const startDate = start.toLocaleDateString("de-CH", { day: "2-digit", month: "2-digit" });
-        const endDate = end.toLocaleDateString("de-CH", { day: "2-digit", month: "2-digit" });
-        const formattedDate = startDate === endDate ? startDate : `${startDate} - ${endDate}`;
+    container.innerHTML = holidays
+      .map((holiday) => {
+        const name = holiday.name?.find((item: any) => item.language === "DE")?.text;
 
         return `
           <article class="calendar__card-list-item">
             <div class="calendar__card-list-item-time">
-              <div>${formattedDate}</div>
-              <div>${time}</div>
+              <div>${formatDate(holiday.startDate)}</div>
+              <div>- ${formatDate(holiday.endDate)}</div>
             </div>
+
             <div class="calendar__card-list-item-container">
-              <h3 class="calendar__card-list-item-container-title">${event.subject || "Kein Titel"}</h3>
-              ${location ? `<p class="calendar__card-list-item-container-text">${location}</p>` : ""}
-            </div>            
+              <h3 class="calendar__card-list-item-container-title">
+                ${name}
+              </h3>
+            </div>
           </article>
         `;
       })
