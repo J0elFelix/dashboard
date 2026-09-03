@@ -61,9 +61,9 @@ async function calendar(): Promise<void> {
               <div>${formattedDate}</div>
               <div>${time}</div>
             </div>
-            <div class="calendar__card-list-item-title">
-              <h3>${event.subject || "Kein Titel"}</h3>
-              ${location ? `<p>${location}</p>` : ""}
+            <div class="calendar__card-list-item-container">
+              <h3 class="calendar__card-list-item-container-title">${event.subject || "Kein Titel"}</h3>
+              ${location ? `<p class="calendar__card-list-item-container-text">${location}</p>` : ""}
             </div>            
           </article>
         `;
