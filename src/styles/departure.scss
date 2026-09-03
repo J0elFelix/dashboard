@@ -1,4 +1,7 @@
 .departure__card {
+    &.card {
+        overflow-x: hidden;
+    }
 
     &-route {
         display: flex;
