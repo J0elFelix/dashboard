@@ -37,8 +37,9 @@ async function calendar(): Promise<void> {
     }
 
     const result = await response.json();
+    const sortEvents = (result.value ?? []).sort((a: any, b: any) => new Date(a.start.dateTime).getTime() - new Date(b.start.dateTime).getTime());
 
-    container.innerHTML = (result.value ?? [])
+    container.innerHTML = sortEvents
       .map((event: any) => {
         const allDay = event.isAllDay === true;
         const start = new Date(event.start.dateTime);
