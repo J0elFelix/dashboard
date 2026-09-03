@@ -7,7 +7,7 @@ async function departure(): Promise<void> {
   }
 
   try {
-    const response = await fetch('https://transport.opendata.ch/v1/connections?from=Gossau%20SG%2C%20Migros%20BZ&to=Herisau%2C%20Stelz&limit=4',
+    const response = await fetch('https://transport.opendata.ch/v1/connections?from=Gossau%20SG%2C%20Migros%20BZ&to=Herisau%2C%20Stelz&limit=6',
     );
 
     if (!response.ok) {
