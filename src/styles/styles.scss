@@ -1,33 +1,58 @@
 html,
 body {
-    margin: 0;        
+    min-width: 320px;
+    min-height: 100%;
+    margin: 0;
     background: #f4f7fb;
     font-family: "DM Sans", sans-serif;
 }
 
 .dashboard {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
     grid-template-rows: repeat(2, minmax(0, 1fr));
-    width: min(calc(100% - 32px), 1240px);
-    height: min(calc(100vh - 40px), 920px);
-    margin: 150px auto;
-    gap: 16px;
+    width: min(calc(100% - 32px), 1440px);
+    height: calc(100vh - 64px);
+    max-height: calc(100vh - 64px);
+    margin: 32px auto;
+    gap: 18px;
+    overflow: hidden;
     box-sizing: border-box;
+}
+
+.card {
+    min-width: 0;
+    min-height: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(23, 36, 61, .06);
+}
+
+@media (max-width: 900px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+        max-height: none;
+        min-height: auto;
+        margin: 12px auto;
+        overflow: visible;
+    }
 }
 
 @media (max-width: 700px) {
     .dashboard {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, minmax(260px, auto));
         width: calc(100% - 20px);
-        height: auto;
-        margin: 10px auto;
+        gap: 12px;
+    }
+
+    .card {
+        padding: 15px;
     }
 }
 
-.card {        
-    padding: 15px 18px;    
-    background: #fff;    
-    border-radius: 10px;           
-}
+
+
+
