@@ -15,7 +15,7 @@ async function calendar(): Promise<void> {
   const monday = new Date();
   // Montag beginn und Sonntag ende
   monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
-  monday.setHours(0, 0, 0 ,0);
+  monday.setHours(0, 0, 0, 0);
 
   const nextMonday = new Date(monday);
   nextMonday.setDate(nextMonday.getDate() + 7);
@@ -44,15 +44,19 @@ async function calendar(): Promise<void> {
         const start = new Date(event.start.dateTime);
         const end = new Date(event.end.dateTime);
         const location = event.location?.displayName || "";
-        const time = allDay ? `<span>Ganztägig</span>` : `
+        const time = allDay ? `<span>Ganztägig</span>` : `        
 
         <span>${start.toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit", })}</span>
         -
         <span>${end.toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit", })}</span>
         `;
 
-        const startDate = start.toLocaleDateString("de-CH", { day: "2-digit", month: "2-digit"});
-        const endDate = end.toLocaleDateString("de-CH", { day: "2-digit" , month: "2-digit"});
+        if (event.isAllDay) {
+          end.setDate(end.getDate() - 1);
+        }
+
+        const startDate = start.toLocaleDateString("de-CH", { day: "2-digit", month: "2-digit" });
+        const endDate = end.toLocaleDateString("de-CH", { day: "2-digit", month: "2-digit" });
         const formattedDate = startDate === endDate ? startDate : `${startDate} - ${endDate}`;
 
         return `
